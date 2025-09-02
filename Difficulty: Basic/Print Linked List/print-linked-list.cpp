@@ -2,39 +2,27 @@
 class Node {
   public:
     int data;
-    Node* next;
+    Node *next;
 
-    // Default constructor
-    Node() {
-        data = 0;
+    Node(int x) {
+        data = x;
         next = NULL;
-    }
-
-    // Parameterised Constructor
-    Node(int data) {
-        this->data = data;
-        this->next = NULL;
     }
 };
 */
+
 class Solution {
   public:
-    vector<int> printList(Node *head) {
+    vector<int> displayList(Node *head) {
         // code here
-        
-        vector<int> result;
-        Node* current=head;
-        
-        while(current!=NULL){
-            
-            result.push_back(current->data);
-            
-            current=current->next;
-        
+        vector<int>ans;
+        Node*temp=head;
+        while(temp!=NULL){
+            ans.push_back(temp->data);
+            temp=temp->next;
             
         }
-        
-        return result  ;
-        
+       
+       return  ans; 
     }
 };
