@@ -27,24 +27,22 @@ class Solution {
     Node* constructDLL(vector<int>& arr) {
         // code here
         int n=arr.size();
-        if(n==0){
-          return NULL;
-        }
+        Node*head=NULL;
+        Node*tail=NULL;
         
-        Node*head= new Node(arr[0]);
-        Node*curr=head;
-        
-        for(int i=1;i<n;i++){
+        for(int i=0;i<n;i++){
+        if(head==NULL){
+            head=new Node(arr[i]);
+            tail=head;
+        }else{
             Node*temp=new Node(arr[i]);
-            curr->next=temp;
-            temp->prev=curr;
-            curr=temp;
-            
-        }
-          
+            tail->next=temp;
+            temp->prev=tail;
+            tail=temp;
+           
+        }  
+      }
         
-       return head;
-        
-        
+        return head;
     }
-};
+}; 
