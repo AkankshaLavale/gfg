@@ -9,12 +9,7 @@ class Solution {
         return Reverse(front, curr);
     }
 
-    Node* removeLeadingZeros(Node* head) {
-        while (head && head->data == 0) {
-            head = head->next;
-        }
-        return head ? head : new Node(0); 
-    }
+   
 
     Node* addTwoLists(Node* head1, Node* head2) {
         
@@ -62,10 +57,16 @@ class Solution {
             tail = tail->next;
         }
 
-    
-        Node* result = Reverse(dummy->next, NULL);
-        result = removeLeadingZeros(result);
+        
+     Node* result = Reverse(dummy->next, NULL);
 
-        return result;
+       
+        while (result && result->data == 0) {
+            result = result->next;
+        }
+
+        
+        return result ? result : new Node(0);
+        
     }
 };
