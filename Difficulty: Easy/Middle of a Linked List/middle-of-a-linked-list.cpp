@@ -14,19 +14,16 @@ class Solution {
   public:
     int getMiddle(Node* head) {
         // code here
-        int count=0;
-        Node*temp=head;
-        while(temp){
-            count++;
-            temp=temp->next;
-        }
+        Node*slow=head;
+        Node*fast=head;
         
-        count/=2;
-        temp=head;
-        while(count--){
-            temp=temp->next;
+        while(fast&&fast->next){
+            
+            slow=slow->next;
+            fast=fast->next->next;
             
         }
-        return temp->data;
+
+        return slow->data;
     }
 };
