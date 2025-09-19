@@ -2,18 +2,28 @@ class Solution {
   public:
     vector<int> nextLargerElement(vector<int>& arr) {
         // code here
-        vector<int>ans(arr.size(),-1);
-        stack<int>st;
-        for(int i=0;i<arr.size();i++){
-            while(!st.empty()&&arr[st.top()]<arr[i]){
-                ans[st.top()]=arr[i];
-                st.pop();
-            }
-            st.push(i);
-            
+       int n = arr.size();
+    vector<int> ans(n, -1);  // by default, -1
+    stack<int> st;
+
+    for (int i = n - 1; i >= 0; i--) {
+        // Remove all smaller or equal elements from stack
+        while (!st.empty() && st.top() <= arr[i]) {
+            st.pop();
         }
-        
-        return ans;
+
+        // If stack is not empty, top is the NGE
+        if (!st.empty()) {
+            ans[i] = st.top();
+        }
+
+        // Push current element to stack
+        st.push(arr[i]);
     }
-    
+    return ans;
+    }
 };
+
+
+
+
