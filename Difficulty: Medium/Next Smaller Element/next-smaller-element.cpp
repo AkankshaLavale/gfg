@@ -1,19 +1,22 @@
 class Solution {
   public:
     vector<int> nextSmallerEle(vector<int>& arr) {
-        //  code here
-        stack<int>st;
-        vector<int>ans(arr.size(),-1);
+    
+    int n = arr.size();
+    vector<int> ans(n);
+    stack<int> st;
+
+    for (int i = n - 1; i >= 0; i--) {
         
-        for(int i=0;i<arr.size();i++){
-            while(!st.empty()&&arr[st.top()]>arr[i]){
-                ans[st.top()]=arr[i];
-                st.pop();
-                
-                
-            }
-            st.push(i);
-        }
-        return ans;
+        while (!st.empty() && st.top() >= arr[i])
+            st.pop();
+        
+        ans[i] = st.empty() ? -1 : st.top();
+
+        st.push(arr[i]);
+    }
+    return ans;
+
+
     }
 };
