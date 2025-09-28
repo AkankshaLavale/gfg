@@ -15,21 +15,18 @@ class Solution {
   public:
     Node* reverseList(Node* head) {
         // code here
-        vector<int>ans;
-        Node*temp=head;
-        while(temp!=NULL){
-            ans.push_back(temp->data);
-            temp=temp->next;
+
+        Node* curr = head;
+        Node* prev = NULL;
+        Node* fut = NULL;
+
+        while (curr) {
+            fut = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = fut;
         }
-        int i=ans.size()-1;
-        temp=head;
-        while(temp!=NULL){
-            temp->data=ans[i];
-            i--;
-            temp=temp->next;
-            
-            
-        }
-        return head;
+
+        return prev;
     }
 };
