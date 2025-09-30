@@ -1,22 +1,25 @@
+// User function Template for C++
 
+// User function Template for C++
 
-class Solution {
-  public:
-    // Function to fill the queue with array elements
-    queue<int> fillQ(const vector<int>& arr) {
-        queue<int> q;  
-        for (int i = 0; i < arr.size(); ++i) {
-            q.push(arr[i]);  
-        }
-        return q;
-    }
-
+queue<int> _push(vector<int> &arr) {
+    // return a queue with all elements of arr inserted in it
+    queue<int> q;
     
-    void emptyQ(queue<int>& q) {
-        while (!q.empty()) {
-            cout << q.front() << " "; 
-            q.pop();                    
-        }
-        cout << endl;
+    for(int i=0;i<arr.size();i++){
+        
+        q.push(arr[i]);
+    
     }
-};
+    return q;
+}
+
+void _pop(queue<int> &q) {
+    // print front and dequeue for each element until it becomes empty
+    
+    while (!q.empty()) {
+        cout << q.front() << " ";  
+        q.pop();                    
+    }
+   
+}
