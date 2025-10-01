@@ -1,43 +1,33 @@
-#include <iostream>
-#include <queue>
-using namespace std;
 
-class myQueue {
-private:
-    queue<int> q;
+
+
+class Solution {
 
 public:
-    // 1. Enqueue
-    void enqueue(int x) {
+    // Function to push an element in queue.
+    void enqueue(queue<int> &q, int x) {
         q.push(x);
     }
 
-    // 2. Dequeue
-    void dequeue() {
+    // Function to remove front element from queue.
+    void dequeue(queue<int> &q) {
         if (!q.empty()) {
             q.pop();
         }
     }
 
-    // 3. Get Front Element
-    int getFront() {
+    // Function to find the front element of queue.
+    int front(queue<int> &q) {
         if (!q.empty()) return q.front();
-        return -1;
+        return -1;  // return -1 if queue is empty
     }
 
-    // 4. Get Rear Element
-    int getRear() {
-        if (!q.empty()) return q.back();
-        return -1;
-    }
-
-    // 5. Check if Empty
-    bool isEmpty() {
-        return q.empty();
-    }
-
-    // 6. Get Size
-    int size() {
-        return q.size();
+    // Function to find an element in the queue.
+    bool find(queue<int> q, int y) {
+        while (!q.empty()) {
+            if (q.front() == y) return true;
+            q.pop();
+        }
+        return false;
     }
 };
