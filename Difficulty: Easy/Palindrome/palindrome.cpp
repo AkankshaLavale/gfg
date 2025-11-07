@@ -1,13 +1,20 @@
 class Solution {
   public:
     bool isPalindrome(int n) {
-        return n == reverseNumber(n, 0);
-    }
-    
-  private:
-    int reverseNumber(int n, int rev) {
-        if(n == 0)
-            return rev;
-        return reverseNumber(n / 10, rev * 10 + n % 10);
+        // code here.
+        string s = to_string(n);
+        int left = 0;
+        int right =s.size()-1;
+        
+        while(left<right){
+            
+            if(s[left]!=s[right]){
+                return false;
+            }
+            left = left+1;
+            right = right-1;
+        }
+        
+        return true;
     }
 };
