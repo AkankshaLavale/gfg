@@ -1,20 +1,21 @@
 class Solution {
   public:
-    // Function to check if a string is a palindrome.
     bool isPalindrome(string& s) {
         // code here
-        int start =0;
-        int end =s.size()-1;
+        int left = 0;
+        int right =s.length()-1;
         
-        while(start<end){
-            if(s[start]!=s[end]){
-                return false ;
-            }
-            start++;
-            end--;
+        while(left<right){
             
+            if(s[left]!=s[right]){
+                return false;
+            }
+            left = left+1;
+            right = right-1;
         }
         
-        return true ;
+        return true;
     }
 };
+
+
