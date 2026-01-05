@@ -1,14 +1,16 @@
 class Solution {
-  public:
+public:
     int missingNum(vector<int>& arr) {
-        long long n = arr.size() + 1;  
-        long long total = n * (n + 1) / 2;
+        int size = arr.size();
+        int n = size + 1;
 
-        long long sum = 0;
-        for (int num : arr) {
-            sum += num;
+        long long arrSum = 0;
+        for (int i = 0; i < size; i++) {
+            arrSum += arr[i];
         }
 
-        return (int)(total - sum);  
+        long long expectedSum = 1LL * n * (n + 1) / 2;
+
+        return expectedSum - arrSum;
     }
 };
