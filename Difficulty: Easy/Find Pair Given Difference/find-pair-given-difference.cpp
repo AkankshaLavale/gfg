@@ -2,28 +2,28 @@
 class Solution {
   public:
     bool findPair(vector<int> &arr, int x) {
-        
         // code here
-        
+        int n = arr.size();
         sort(arr.begin(),arr.end());
-        int n= arr.size();
-        int start=0;
-        int end=1;
+        int start = 0 ;
+        int end = 1;
         
-        while(end<n){
+        while(start<end&&end<n){
             
             if(arr[end]-arr[start]==x){
                 return true;
             }else if(arr[end]-arr[start]<x){
                 end++;
-                
             }else{
                 start++;
             }
-            if(start==end){
+            if(start == end) {
                 end++;
             }
+            
         }
+        
         return false;
     }
+    
 };
