@@ -1,11 +1,13 @@
+// User function Template for C++
 class Solution {
   public:
-    void Addition(vector<vector<int>>& a, vector<vector<int>>& b) {
-        int n = a.size(); 
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                a[i][j] += b[i][j]; 
+    void Addition(vector<vector<int>>& matrixA, vector<vector<int>>& matrixB) {
+        
+        int n = matrixA.size();   // since square matrix
+        
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                matrixA[i][j] = matrixA[i][j] + matrixB[i][j];
             }
         }
     }
