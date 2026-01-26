@@ -1,9 +1,15 @@
+// User function Template for C++
+
 class Solution {
-public:
+  public:
     string toLower(string& s) {
-        for (int i = 0; i < s.length(); i++) {
-            s[i] = tolower(s[i]); // convert each character to lowercase
+        // code here
+        for(int i=0;i<s.size();i++){
+            if(s[i]>='A'&&s[i]<='Z'){
+                s[i] = 'a' + ( s[i]-'A');
+            }
         }
+        
         return s;
     }
 };
