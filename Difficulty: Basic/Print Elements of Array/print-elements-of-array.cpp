@@ -3,15 +3,16 @@ class Solution {
   public:
     // Just print the space seperated array elements
     void helper(vector<int> &arr,int index){
-        if(index==arr.size()){
+        if(index==-1){
             return;
         }
+        
+        helper(arr,index-1);
         cout<<arr[index]<<" ";
-        helper(arr,index+1);
     }
     void printArray(vector<int> &arr) {
         // code here
-        helper(arr,0);
+        helper(arr,arr.size()-1);
         
     }
 };
