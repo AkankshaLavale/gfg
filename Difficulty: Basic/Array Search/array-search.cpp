@@ -1,14 +1,21 @@
 class Solution {
   public:
-    int search(vector<int>& arr, int x) {
-        // code here
-        int n=arr.size();
-        for(int i=0;i<n;i++){
-            if(arr[i]==x){
-                return i;
-            }
+    
+    int find(vector<int>&arr, int x, int index){
+        
+        if(index==arr.size()){
+            return -1;
         }
         
-        return -1;
+        if(arr[index]==x){
+            return index;
+        }
+        return find(arr,x,index+1);
+    }
+    
+    
+    int search(vector<int>& arr, int x) {
+        // code here
+        return find(arr,x,0);
     }
 };
