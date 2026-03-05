@@ -15,12 +15,11 @@ class Solution {
   public:
     Node *insertAtFront(Node *head, int x) {
         // Code here
-    Node*temp;
-    temp=new Node(x);
-    temp->next=head;
-    head=temp;
-    return head;
+        Node *newNode = new Node(x);
+        newNode->next = head;
+        head = newNode;
+        
+        return head;
     }
-    
     
 };
