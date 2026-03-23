@@ -3,16 +3,21 @@
 class Solution {
   public:
     stack<int> insertAtBottom(stack<int> st, int x) {
-        stack<int>temp;
+        
+        stack<int>extra;
+        
         while(!st.empty()){
-            temp.push(st.top());
+            extra.push(st.top());
             st.pop();
         }
+        
         st.push(x);
-        while(!temp.empty()){
-            st.push(temp.top());
-            temp.pop();
+        
+        while(!extra.empty()){
+            st.push(extra.top());
+            extra.pop();
         }
+        
         return st;
     }
 };
