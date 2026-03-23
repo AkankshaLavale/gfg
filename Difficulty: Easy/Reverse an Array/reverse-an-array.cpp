@@ -1,22 +1,18 @@
 class Solution {
   public:
-  
-    
-    void helper(vector<int>&arr,int left,int right){
-        
-        if(left>=right){
-            return;
-        }
-        
-        swap(arr[left],arr[right]);
-        helper(arr,left+1,right-1);
-    }
-    
-    
     void reverseArray(vector<int> &arr) {
         // code here
-        helper(arr,0,arr.size()-1);
+        stack<int>st;
         
-       
+        for(int i =0 ;i<arr.size();i++){
+            
+            st.push(arr[i]);
+        }
+        
+        for(int i=0;i<arr.size();i++){
+            
+            arr[i]=st.top();
+            st.pop();
+        }
     }
 };
