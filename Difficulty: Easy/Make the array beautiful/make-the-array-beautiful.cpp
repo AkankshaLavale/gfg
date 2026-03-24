@@ -2,16 +2,36 @@ class Solution {
   public:
     vector<int> makeBeautiful(vector<int> arr) {
         
-        vector<int> ans;
+        stack<int>st;
         
-        for(int i = 0; i < arr.size(); i++){
-            if(!ans.empty() && 
-               ((ans.back() >= 0 && arr[i] < 0) || (ans.back() < 0 && arr[i] >= 0))){
-                ans.pop_back();
+        for(int i =0;i<arr.size();i++){
+            
+            if(st.empty()){
+                st.push(arr[i]);
             }
-            else{
-                ans.push_back(arr[i]);
+            else if(arr[i]>=0){
+                if(st.top()>=0){
+                    st.push(arr[i]);
+                }else{
+                    st.pop();
+                }
+            }else{
+                if(st.top()<0){
+                    st.push(arr[i]);
+                }else{
+                    st.pop();
+                }
+                
             }
+        }
+        
+        vector<int>ans(st.size());
+        int i = ans.size()-1;
+        
+        while(!st.empty()){
+            ans[i]=st.top();
+            st.pop();
+            i--;
         }
         
         return ans;
