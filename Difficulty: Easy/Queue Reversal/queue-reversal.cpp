@@ -8,11 +8,11 @@ class Solution {
             st.push(q.front());
             q.pop();
         }
+        
         while(!st.empty()){
             q.push(st.top());
             st.pop();
         }
         
-      
     }
 };
